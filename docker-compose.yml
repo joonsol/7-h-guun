@@ -39,6 +39,12 @@ services:
    SPRING_DATASOURCE_USERNAME: ${MYSQL_USER:-cruduser}
    SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:-crudpass}
    GRADLE_USER_HOME: /root/.gradle
+   
+   AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+   AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+   AWS_REGION: ${AWS_REGION:-ap-northeast-2}
+   AWS_S3_BUCKET: ${AWS_S3_BUCKET:-momentry}
+
   ports:
    - "8080:8080"
   volumes:
@@ -47,7 +53,7 @@ services:
    - /app/build
    - /app/.gradle
   healthcheck:
-   test: ["CMD-SHELL", "curl -f http://localhost:8080/api/todos || exit 1"]
+   test: ["CMD-SHELL", "curl -f http://localhost:8080/hello || exit 1"]
    interval: 10s
    timeout: 5s
    retries: 10

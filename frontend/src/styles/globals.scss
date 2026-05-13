@@ -45,9 +45,18 @@ ul {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url(../../public/images/landing-bg-edited.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  .landing {
+    background-image: url(../../public/images/landing-bg-edited.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .post-section {
+    // background-color: #fff;
+    background-image: url(../../public/images/login-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 /* App background (보라 그라데이션 + 은은한 비네팅) */
 .app-bg {

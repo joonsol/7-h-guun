@@ -50,6 +50,7 @@
         }
     } 
     .inner {
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -74,6 +75,7 @@
             border: 1px solid #e4af60;
             padding: $r-md;
             box-shadow: $shadow;
+            background: rgba(173, 135, 29, 0.25);
             nav {
                 display: flex;
                 justify-content: space-between;

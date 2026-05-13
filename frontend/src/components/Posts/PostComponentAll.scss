@@ -1,5 +1,5 @@
 @use "@/styles/variables" as *;
-.tags-wrapper .tags {
+.tags-wrapper .tags { 
     display: flex;
     gap: $space-sm;
     margin-top: $space-xl;
@@ -34,6 +34,7 @@
     padding: $space-lg;
     border-radius: $r-md;
     color: $bg;
+    
     gap: $space-lg;
     justify-content: space-between;
 
@@ -47,6 +48,7 @@
             font-weight: $fw-bold;
         }
         .post-title {
+            
             margin: $space-md 0;
             font-size: $text-lg;
             display: -webkit-box;

@@ -3,7 +3,6 @@ import Button from '@/components/ui/Button'
 import { getPostById, deletePost } from '@/api/post.api'
 import PostTag from '@/components/posts/PostTag'
 import './PoatPagesAll.scss'
-
 import { useNavigate, useParams } from 'react-router-dom'
 import PostHeader from '@/components/posts/PostHeader'
 const PostDetail = () => {
@@ -81,7 +80,7 @@ const PostDetail = () => {
               </div>
             </div>
             <div className="img-wrap">
-              <img src="/images.png" alt="image" />
+              <img src={post.imageUrl} alt="image" />
             </div>
           </article>
 

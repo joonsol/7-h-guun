@@ -22,5 +22,14 @@ management:
   endpoint:
     health:
       show-details: always
+
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region: ${AWS_REGION}
+    s3:
+      bucket: ${AWS_S3_BUCKET}
 cors:
   allowed-origins: http://localhost:5173
