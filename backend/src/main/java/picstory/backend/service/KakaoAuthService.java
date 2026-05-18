@@ -1,7 +1,9 @@
 package picstory.backend.service;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
@@ -14,6 +16,9 @@ import picstory.backend.web.dto.KakaoTokenResponse;
 import picstory.backend.web.dto.KakaoUserResponse;
 import picstory.backend.web.dto.MemberResponse;
 
+
+@Service
+@RequiredArgsConstructor
 public class KakaoAuthService {
 
     private final KakaoProperties kakaoProperties;
@@ -22,11 +27,6 @@ public class KakaoAuthService {
     private final MemberRepository memberRepository;
 
     private static final String LOGIN_MEMBER_ID = "LOGIN_MEMBER_ID";
-
-    public KakaoAuthService(KakaoProperties kakaoProperties, MemberRepository memberRepository) {
-        this.kakaoProperties = kakaoProperties;
-        this.memberRepository = memberRepository;
-    }
 
     public String getAuthorizationUrl(){
         return UriComponentsBuilder
@@ -105,4 +105,5 @@ public class KakaoAuthService {
                 "KAKAO"
         );
     }
+
 }

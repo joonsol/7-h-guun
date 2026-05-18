@@ -4,7 +4,7 @@ package picstory.backend.web.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import software.amazon.awssdk.profiles.Profile;
+
 
 @Getter
 @Setter
