@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties(prefix = "Kakao")
+@ConfigurationProperties(prefix = "kakao")
 public class KakaoProperties {
     private String clientId;
     private String clientSecret;

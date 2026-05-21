@@ -80,8 +80,8 @@ public class KakaoAuthService {
     }
 
     private Member createKakaoMember(KakaoUserResponse kakaoUser){
-        String name = "Kakao"+ kakaoUser.getId();
-        String email ="Kakao"+kakaoUser.getId() + "@kakao.local";
+        String name = "kakao"+ kakaoUser.getId();
+        String email ="kakao"+kakaoUser.getId() + "@kakao.local";
 
         if(kakaoUser.getKakaoAccount()!=null){
             if(kakaoUser.getKakaoAccount().getEmail()!=null){

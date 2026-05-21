@@ -58,6 +58,9 @@ const Login = () => {
     }
   }
 
+  const handleKakaoLogin=()=>{
+    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/kakao`
+  }
 
   const handleBack = () => {
     navigate(-1)
@@ -107,6 +110,7 @@ const Login = () => {
             <span>계정이 없으신가요?</span>
             <Link to="/signup">
               <Button text="회원가입하기" icons />
+              <Button text="카카오로그인" icons='kakao' className='kakao' onClick={handleKakaoLogin}/>
             </Link>
           </div>
         </div>

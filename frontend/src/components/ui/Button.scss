@@ -65,5 +65,11 @@
         background-color: $warning;
     }
     
-
+    &.kakao{
+        background-color: $kakao;
+        color:$gray-800;
+        border-radius: $r-pill;
+        padding-top: $space-xs;
+        padding-bottom: $space-xs;
+    }
 }
