@@ -1,68 +1,69 @@
-import React ,{createContext, useContext,useMemo,useState, useEffect} from 'react'
+import React, { createContext, useContext, useMemo, useState, useEffect } from 'react'
+import { getMe } from '../api/auth.api'
 
-import {getMe} from '../api/auth.api'
+const AuthCtx = createContext(null)
 
-const AuthCtx =createContext(null)
+export function AuthProvider({ children }) {
+  const [member, setMember] = useState(null)
+  const [ready, setReady] = useState(false)
 
-export function AuthProvider({children}){
+  const checkAuth = async () => {
+    const data = await getMe()
+    setMember(data)
+    setReady(true)
+    return data
+  }
 
-  const [member,setMember]=useState(null)
-  const [ready,setReady]=useState(false)
+  useEffect(() => {
+    let mounted = true
 
-  const [token, setToken]=useState(localStorage.getItem('accessToken'))
-
-
-  useEffect(()=>{
-    let mounted= true
-
-    const bootstrapAuth= async()=>{
+    const bootstrapAuth = async () => {
       try {
-        const data=await getMe()
+        const data = await getMe()
 
-        if(mounted) {
+        if (mounted) {
           setMember(data)
         }
       } catch {
-        if(mounted) {
+        if (mounted) {
           setMember(null)
         }
-      }finally {
-        if(mounted) {
+      } finally {
+        if (mounted) {
           setReady(true)
         }
       }
     }
+
     bootstrapAuth()
 
-    return ()=>{
-      mounted=false
+    return () => {
+      mounted = false
     }
-  },[])
+  }, [])
 
-  const login =(memberData)=>{
+  const login = (memberData) => {
     setMember(memberData)
   }
 
-  const logout=()=>{
+  const logout = () => {
     setMember(null)
   }
 
-  const value =useMemo(()=>({
+  const value = useMemo(() => ({
     member,
     ready,
-    isAuthed:!!member,
+    isAuthed: !!member,
     login,
-    logout
+    logout,
+    checkAuth
+  }), [member, ready])
 
-  }),[member,ready])
-
-  
-
-  return <AuthCtx.Provider value={value}>
-    {children}
-  </AuthCtx.Provider>
-
+  return (
+    <AuthCtx.Provider value={value}>
+      {children}
+    </AuthCtx.Provider>
+  )
 }
 
-
-export const useAuth = ()=>useContext(AuthCtx)
+export const useAuth = () => useContext(AuthCtx)

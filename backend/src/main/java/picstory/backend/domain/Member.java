@@ -26,7 +26,6 @@ public class Member {
 
     private String provider;
 
-
     @Column(nullable = false,unique = true,length = 100)
     private String email;
 
@@ -58,6 +57,10 @@ public class Member {
         this.updatedAt=LocalDateTime.now();
     }
 
+
+
+
+
     public Member(String name, String email,String passwordHash, String phone){
         this.name=name;
         this.email=email;
@@ -66,8 +69,6 @@ public class Member {
         this.status=MemberStatus.ACTIVE;
         this.emailVerified=false;
     }
-
-
 
     public Member(String name, String email,String passwordHash, String phone,Long kakaoId, String provider){
         this.name=name;

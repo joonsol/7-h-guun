@@ -1,4 +1,5 @@
 package picstory.backend.controller;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -29,3 +30,19 @@ public class S3Controller {
         );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

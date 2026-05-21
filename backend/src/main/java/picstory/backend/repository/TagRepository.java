@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TagRepository extends JpaRepository<Tag,Long> {
-    Optional<Tag> findByMember_IdAndLabel(Long memberId, String label);
+
+    Optional<Tag> findByMember_IdAndLabel(Long memberId,String label);
 
     List<Tag> findAllByMember_Id(Long memberId);
 
     List<Tag> findAllByMember_IdAndLabelIn(Long memberId, Collection<String> labels);
 
     Optional<Tag> findByIdAndMember_Id(Long id,Long memberId);
+
 }

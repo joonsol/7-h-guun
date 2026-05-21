@@ -1,6 +1,5 @@
 package picstory.backend.domain;
 
-
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,9 +12,9 @@ import java.util.Set;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table (
+@Table(
         name = "tags",
-        uniqueConstraints = @UniqueConstraint (
+        uniqueConstraints = @UniqueConstraint(
                 name = "uk_member_tag_label",
                 columnNames = {"member_id","label"}
         )

@@ -1,6 +1,5 @@
 package picstory.backend.service;
 
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import picstory.backend.web.dto.PresignedUrlResponse;
@@ -8,10 +7,13 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.PresignedPutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
-import java.util.UUID;
+
 import java.time.Duration;
+import java.util.UUID;
+
 @Service
 public class S3Service {
+
     private final S3Presigner s3Presigner;
 
     @Value("${cloud.aws.s3.bucket:}")
@@ -24,7 +26,7 @@ public class S3Service {
         this.s3Presigner = s3Presigner;
     }
 
-    public PresignedUrlResponse createPresignUrl(String fileName, String contentType){
+    public PresignedUrlResponse createPresignUrl(String fileName,String contentType){
         if(bucket==null||bucket.isBlank()){
             throw  new IllegalArgumentException("S3 bucket is not configured.");
         }
@@ -63,3 +65,5 @@ public class S3Service {
         );
     }
 }
+
+

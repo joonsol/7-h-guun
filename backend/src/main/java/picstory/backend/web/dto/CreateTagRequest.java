@@ -1,6 +1,6 @@
 package picstory.backend.web.dto;
 
-public record CreateTagRequest (
+public record CreateTagRequest(
         String label
-){
+) {
 }

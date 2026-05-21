@@ -1,6 +1,5 @@
 package picstory.backend.controller;
 
-
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -23,15 +22,15 @@ public class KakaoAuthController {
     private String frontendUrl;
 
     @GetMapping
-    public void redirectToKakao(HttpServletResponse response) throws IOException {
+    public void redirectToKakao(HttpServletResponse response) throws IOException{
         response.sendRedirect(kakaoAuthService.getAuthorizationUrl());
     }
 
     @GetMapping("/callback")
     public void callback(
-            @RequestParam String code,
-            HttpSession session,
-            HttpServletResponse response
+      @RequestParam String code,
+      HttpSession session,
+      HttpServletResponse response
     ) throws  IOException{
         kakaoAuthService.login(code,session);
         response.sendRedirect(frontendUrl+"/oauth/kakao/callback?token=session");
